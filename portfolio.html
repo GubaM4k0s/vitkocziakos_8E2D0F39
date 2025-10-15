@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólió - Projektek</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Weboldalam</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Kezdőlap</a></li>
+                <li><a href="portfolio.html" class="active">Portfólió</a></li>
+                <li><a href="calculator.html">Kalkulátor</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="portfolio-page">
+        <div class="container">
+            <h1>Portfólió</h1>
+            <p class="subtitle">Projektjeim bemutatása</p>
+
+            <div class="filter-section">
+                <h3>Szűrés értékelés alapján:</h3>
+                <label>
+                    Minimum értékelés:
+                    <input type="number" id="minRating" min="1" max="5" value="1" step="0.5">
+                </label>
+                <button onclick="applyFilter()" class="btn btn-primary">Szűrés</button>
+                <button onclick="showAllProjects()" class="btn btn-secondary">Összes megjelenítése</button>
+                <button onclick="showBestProject()" class="btn btn-primary">Legjobb projekt</button>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <h4>Összes projekt</h4>
+                    <p id="totalProjects">-</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Átlag értékelés</h4>
+                    <p id="avgRating">-</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Legjobb értékelés</h4>
+                    <p id="maxRating">-</p>
+                </div>
+            </div>
+
+            <div id="projectContainer" class="projects-grid">
+                <!-- Projektek dinamikusan töltődnek be -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Weboldalam. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Oldal betöltésekor inicializálás
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePortfolio();
+        });
+    </script>
+</body>
+</html>
