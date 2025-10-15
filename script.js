@@ -177,6 +177,12 @@ function initializePortfolio() {
 
 function displayProjects(projectsList) {
     const container = document.getElementById('projectContainer');
+
+    // Védőfeltétel: ha nincs konténer az oldalon, nem folytatjuk
+    if (!container) {
+        console.warn('A projectContainer elem nem található a DOM-ban.');
+        return;
+    }
     
     // Logikai művelet: üres tömb kezelése
     if (!projectsList || projectsList.length === 0) {
@@ -209,12 +215,26 @@ function updateStatistics(projectsList) {
 
     // Statisztikák számítása
     const stats = calculateStatistics(ratings);
-    
+
     // Logikai művelet: ellenőrzés
+    const totalEl = document.getElementById('totalProjects');
+    const avgEl = document.getElementById('avgRating');
+    const maxEl = document.getElementById('maxRating');
+
+    // Ha bármelyik elem hiányzik, nem próbáljuk meg frissíteni
+    if (!totalEl || !avgEl || !maxEl) {
+        console.warn('Hiányzó statisztika elem(ek) a DOM-ban.');
+        return;
+    }
+
     if (stats) {
-        document.getElementById('totalProjects').textContent = stats.count;
-        document.getElementById('avgRating').textContent = stats.average.toFixed(2);
-        document.getElementById('maxRating').textContent = stats.max.toFixed(1);
+        totalEl.textContent = stats.count;
+        avgEl.textContent = stats.average.toFixed(2);
+        maxEl.textContent = stats.max.toFixed(1);
+    } else {
+        totalEl.textContent = '0';
+        avgEl.textContent = '-';
+        maxEl.textContent = '-';
     }
 }
 
