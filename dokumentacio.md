@@ -83,5 +83,4 @@ A weboldal egy **Személyes Portfólió és Interaktív Kalkulátor** alkalmazá
 - **Keresés**: Implicit módon a filter műveletekben
 
 ## AI használata
-
-Nem került felhasználásra AI segítség a projekt elkészítéséhez.
+került felhasználásra AI segítség a projekt elkészítéséhez.
