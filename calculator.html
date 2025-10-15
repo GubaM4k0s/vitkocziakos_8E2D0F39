@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulátor - Számológép</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Weboldalam</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Kezdőlap</a></li>
+                <li><a href="portfolio.html">Portfólió</a></li>
+                <li><a href="calculator.html" class="active">Kalkulátor</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="calculator-page">
+        <div class="container">
+            <h1>Interaktív Kalkulátor</h1>
+            <p class="subtitle">Matematikai műveletek és statisztikák</p>
+
+            <div class="calculator-section">
+                <h2>Alapműveletek</h2>
+                <div class="calculator">
+                    <div class="calc-display">
+                        <input type="text" id="display" readonly value="0">
+                    </div>
+                    <div class="calc-inputs">
+                        <input type="number" id="num1" placeholder="Első szám" step="any">
+                        <select id="operation">
+                            <option value="add">Összeadás (+)</option>
+                            <option value="subtract">Kivonás (-)</option>
+                            <option value="multiply">Szorzás (×)</option>
+                            <option value="divide">Osztás (÷)</option>
+                        </select>
+                        <input type="number" id="num2" placeholder="Második szám" step="any">
+                    </div>
+                    <button onclick="performCalculation()" class="btn btn-primary btn-large">Számolás</button>
+                </div>
+            </div>
+
+            <div class="statistics-section">
+                <h2>Statisztikai Műveletek</h2>
+                <div class="stats-calculator">
+                    <label>
+                        Írj be számokat vesszővel elválasztva:
+                        <input type="text" id="numberList" placeholder="pl: 5, 10, 15, 20, 25">
+                    </label>
+                    <div class="stats-buttons">
+                        <button onclick="calculateStats()" class="btn btn-primary">Statisztika számítás</button>
+                        <button onclick="clearStats()" class="btn btn-secondary">Törlés</button>
+                    </div>
+                    <div id="statsResults" class="stats-results">
+                        <!-- Eredmények itt jelennek meg -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-section">
+                <h3>Előzmények</h3>
+                <div id="history" class="history-list">
+                    <p class="empty-message">Még nincs művelet elvégezve</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Weboldalam. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
